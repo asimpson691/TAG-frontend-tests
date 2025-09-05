@@ -1,0 +1,11 @@
+{
+    "main": "index.js",
+    "scripts": {
+        "test": "npx cucumber-js --require-module ts-node/register --require 'features/step-definitions/**/*.ts'"
+    },
+    "devDependencies": {
+        "@cucumber/cucumber": "^12.2.0",
+        "@types/node": "^24.3.1",
+        "ts-node": "^10.9.2"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "main": "index.js",
+    "devDependencies": {
+        "@types/node": "^24.3.1",
+        "ts-node": "^10.9.2"
+    }
+}
