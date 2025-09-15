@@ -31,7 +31,7 @@ await helpers.deleteAllWishlists();
 await signinPage.signin();
 await homepage.addPropertyToWishlist("Sunny cottage in Cornwall", "My favourite places"); // includes the creation of the new wishlist
 await homepage.navigateTo("My Wishlists");
-await myWishlists.checkItemExists("Sunny cottage in Cornwall", "My favourite places")
+await wishlistsPage.checkItemExists("Sunny cottage in Cornwall", "My favourite places")
 ```
 In order to apply the statements in a BDD scenario directly to these calls, we have two options:
 1. have a separate statement in our scenario for each function call. I.e. Our BDD scenario would look like the following
@@ -48,9 +48,9 @@ In order to apply the statements in a BDD scenario directly to these calls, we h
 2. implement a higher level function like `homepage.checkItemExistsInWishlist` which would navigate to the wishlist page and check the property exists in the specified wishlist.
 3. implement the BDD steps outside of the POM. E.g.
 ```
-Then('the new property is visible in the wishlist "My favourite places"', async ({ page }, name: string) => {
+Then('the new property is visible in the wishlist "My favourite places"', async ({ homepage, wishlistsPage }, name: string) => {
     await homepage.navigateTo("My Wishlists");
-    await myWishlists.checkItemExists("Sunny cottage in Cornwall", "My favourite places")
+    await wishlistsPage.checkItemExists("Sunny cottage in Cornwall", "My favourite places")
 });
 ```
-But is the navigation step `And the user navigates to the "My Wishlists" page` needed? It doesn't seem to add anything to scenario except for ease of implementing an automated test.
+I'm not sure the navigation step `And the user navigates to the "My Wishlists" page` is needed - it doesn't seem to add anything to scenario except for ease of implementing an automated test. So the example in `playwright-bdd` implements the 3rd option above.
