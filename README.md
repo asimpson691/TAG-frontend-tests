@@ -8,8 +8,15 @@ This repo aims to provide example projects for various test frameworks
     1.3. [Playwright with Playwright-BDD](#playwright-with-playwright-bdd)
 2. Webapp Automation frameworks  
     2.1. [Playwright](#playwright)
+3. API test frameworks  
+    3.1. [Jest with fetch](#jest-with-fetch)  
+    3.2. [Jest with supertest](#jest-with-supertest)  
+4. Unit and component test frameworks
+    4.1. TBD
 
 # BDD frameworks
+`NOTES.md` contains some useful information for those of us who aren't familiar with writing BDD scenarios and implementing tests covering them.
+
 ## Native Cucumber <a name="native-cucumber"></a>
 `/cucumber`  
 Example based on [docs 10-minute-tutorial](https://cucumber.io/docs/guides/10-minute-tutorial?lang=javascript), with a simple conversion to Typescript.
@@ -26,5 +33,13 @@ Whilst Playwright has no native support for BDD tests using the Gherkin syntax, 
 # Webapp Automation frameworks
 ## Playwright <a name="playwright"></a>
 `/playwright`
-As of 2025, this is one of the most popular test automation frameworks for modern web apps (with more weekly downloads than Cypress).  
-Tests cover [Recipe Sage](https://recipesage.com/#/welcome).
+As of 2025, this is one of the most popular test automation frameworks for modern web apps (with more weekly downloads than Cypress).
+
+# API test frameworks
+## Jest with Fetch <a name="jest-with-fetch"></a>
+`/backend-test-frameworks/apiTests/jest-fetch.spec.js`
+Node now comes with a native Fetch API, meaning that http libraries such as `axios` (which sometimes have vulnerabilities) are no longer needed.
+
+## Jest with Supertest <a name="jest-with-supertest"></a>
+`backend-test-frameworks/apiTests/jest-supertest.spec.js`
+[Supertest](https://www.npmjs.com/package/supertest) at first glance adds some syntactic sugar over what [Jest with fetch](#jest-with-fetch) achieves. There may be more supertest though - I haven't delved that deep.
