@@ -11,6 +11,7 @@ This repo aims to provide example projects for various test frameworks
 3. API test frameworks  
     3.1. [Jest with fetch](#jest-with-fetch)  
     3.2. [Jest with supertest](#jest-with-supertest)  
+    3.3. [Vitest with fetch](#vitest-with-fetch)
 4. Unit and component test frameworks  
     4.1. [Vitest](#vitest)
 
@@ -37,12 +38,16 @@ As of 2025, this is one of the most popular test automation frameworks for moder
 
 # API test frameworks
 ## Jest with Fetch <a name="jest-with-fetch"></a>
-`/backend-test-frameworks/apiTests/jest-fetch.spec.js`
+`/backend-test-frameworks/apiTests/jest/jest-fetch.spec.js`
 Node now comes with a native Fetch API, meaning that http libraries such as `axios` (which sometimes have vulnerabilities) are no longer needed.
 
 ## Jest with Supertest <a name="jest-with-supertest"></a>
-`backend-test-frameworks/apiTests/jest-supertest.spec.js`
+`backend-test-frameworks/apiTests/jest/jest-supertest.spec.js`
 [Supertest](https://www.npmjs.com/package/supertest) at first glance adds some syntactic sugar over what [Jest with fetch](#jest-with-fetch) achieves. There may be more supertest though - I haven't delved that deep.
+
+## Vitest with Fetch <a name="vitest-with-fetch"></a>
+`/backend-test-frameworks/apiTests/vitest/vitest-fetch.spec.js`
+Node now comes with a native Fetch API, meaning that http libraries such as `axios` (which sometimes have vulnerabilities) are no longer needed.
 
 # Unit and Component test frameworks
 ## Vitest <a name="vitest"></a>
