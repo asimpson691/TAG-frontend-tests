@@ -11,8 +11,8 @@ This repo aims to provide example projects for various test frameworks
 3. API test frameworks  
     3.1. [Jest with fetch](#jest-with-fetch)  
     3.2. [Jest with supertest](#jest-with-supertest)  
-4. Unit and component test frameworks
-    4.1. TBD
+4. Unit and component test frameworks  
+    4.1. [Vitest](#vitest)
 
 # BDD frameworks
 `NOTES.md` contains some useful information for those of us who aren't familiar with writing BDD scenarios and implementing tests covering them.
@@ -43,3 +43,8 @@ Node now comes with a native Fetch API, meaning that http libraries such as `axi
 ## Jest with Supertest <a name="jest-with-supertest"></a>
 `backend-test-frameworks/apiTests/jest-supertest.spec.js`
 [Supertest](https://www.npmjs.com/package/supertest) at first glance adds some syntactic sugar over what [Jest with fetch](#jest-with-fetch) achieves. There may be more supertest though - I haven't delved that deep.
+
+# Unit and Component test frameworks
+## Vitest <a name="vitest"></a>
+`backend-test-frameworks/tests/vitest`
+Incredibly simpler to setup than Jest when working with Typescript and ESM modules - it just works without the finicky config that Jest needs.
