@@ -19,6 +19,7 @@ export const getRecommendedTrip = async () => {
 		`https://airportgap.com/api/airports/distance?from=${localAirportCode}&to=${destination.iataCode}`,
 		{ method: "POST" },
 	);
+
 	if (!data || !data.attributes) {
 		throw new Error("Request failed - please try again later");
 	}
@@ -38,11 +39,16 @@ export const getFavouriteTrips = () => {
 	return tripsArray;
 };
 
-export const getFavouriteTrip = (uuid) => {
+export const getFavouriteTrip = (uuid: string) => {
 	return favouriteTrips[uuid];
 };
 
-export const addFavouriteTrip = (name, from_airport, to_airport, dates) => {
+export const addFavouriteTrip = (
+	name: string,
+	from_airport: string,
+	to_airport: string,
+	dates: Record<"from" | "to", string>,
+) => {
 	const id = faker.string.uuid();
 	favouriteTrips[id] = { name, from_airport, to_airport, dates };
 	return id;

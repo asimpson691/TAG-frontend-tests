@@ -36,8 +36,11 @@ app.get("/trips/recommend", async (_req, res) => {
 	try {
 		const recommendedTrip = await getRecommendedTrip();
 		return res.status(200).json(recommendedTrip);
-	} catch (error) {
-		return res.status(404).json({ error: error.message });
+	} catch (error: unknown) {
+		if (error instanceof Error) {
+			return res.status(404).json({ error: error.message });
+		}
+		return res.status(404).json({ error: "Unknown error" });
 	}
 });
 

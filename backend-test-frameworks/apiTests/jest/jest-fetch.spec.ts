@@ -1,4 +1,4 @@
-import { makeFetch } from "../src/common";
+import { makeFetch } from "./common";
 
 const baseURL = "http://localhost:3000";
 

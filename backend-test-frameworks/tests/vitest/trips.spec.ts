@@ -33,8 +33,14 @@ describe("getFavouriteTrips", () => {
 			.mockReturnValueOnce("0000-0001")
 			.mockReturnValueOnce("0000-0002");
 
-		trips.addFavouriteTrip("Trip1", "BRS", "CDG", ["2024-06-01"]);
-		trips.addFavouriteTrip("Trip2", "BRS", "JFK", ["2024-07-01"]);
+		trips.addFavouriteTrip("Trip1", "BRS", "CDG", {
+			from: "2024-06-01",
+			to: "2024-06-08",
+		});
+		trips.addFavouriteTrip("Trip2", "BRS", "JFK", {
+			from: "2024-07-01",
+			to: "2024-07-08",
+		});
 
 		const tripsArray = trips.getFavouriteTrips();
 		expect(tripsArray).toEqual([
@@ -56,14 +62,23 @@ describe("getFavouriteTrip", () => {
 			.mockReturnValueOnce("0000-0002")
 			.mockReturnValueOnce("0000-0003");
 
-		trips.addFavouriteTrip("Trip 1", "BRS", "LHR", ["2024-08-01"]);
-		trips.addFavouriteTrip("Trip 2", "BRS", "MDR", ["2024-08-11"]);
-		trips.addFavouriteTrip("Trip 3", "BRS", "SOL", ["2024-08-21"]);
+		trips.addFavouriteTrip("Trip 1", "BRS", "LHR", {
+			from: "2024-08-01",
+			to: "2024-08-08",
+		});
+		trips.addFavouriteTrip("Trip 2", "BRS", "MDR", {
+			from: "2024-09-01",
+			to: "2024-09-08",
+		});
+		trips.addFavouriteTrip("Trip 3", "BRS", "SOL", {
+			from: "2024-10-01",
+			to: "2024-10-08",
+		});
 		expect(trips.getFavouriteTrip("0000-0002")).toEqual({
 			name: "Trip 2",
 			from_airport: "BRS",
 			to_airport: "MDR",
-			dates: ["2024-08-11"],
+			dates: { from: "2024-09-01", to: "2024-09-08" },
 		});
 	});
 });
@@ -72,17 +87,17 @@ describe("addFavouriteTrip", () => {
 	test("should add a trip and return its id", () => {
 		mockFakerStringUUId.mockReturnValueOnce("0000-7891");
 
-		const id = trips.addFavouriteTrip("Holiday", "BRS", "JFK", [
-			"2024-06-01",
-			"2024-06-10",
-		]);
+		const id = trips.addFavouriteTrip("Holiday", "BRS", "JFK", {
+			from: "2024-06-01",
+			to: "2024-06-08",
+		});
 
 		expect(id).toBe("0000-7891");
 		expect(trips.getFavouriteTrip("0000-7891")).toEqual({
 			name: "Holiday",
 			from_airport: "BRS",
 			to_airport: "JFK",
-			dates: ["2024-06-01", "2024-06-10"],
+			dates: { from: "2024-06-01", to: "2024-06-08" },
 		});
 	});
 });

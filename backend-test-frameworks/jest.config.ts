@@ -1,9 +1,14 @@
-import { createJsWithTsEsmPreset, type JestConfigWithTsJest } from "ts-jest";
-
-const presetConfig = createJsWithTsEsmPreset({});
-
-const jestConfig: JestConfigWithTsJest = {
-	...presetConfig,
+const jestConfig = {
+	projects: [
+    {
+      displayName: 'api',
+	  testMatch: ['<rootDir>/apiTests/jest/**/*.spec.ts'],
+    },
+    {
+      displayName: 'unit',
+      testMatch: ['<rootDir>/tests/jest/**/*.spec.ts'],
+    },
+  ],
 };
 
 export default jestConfig;

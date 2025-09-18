@@ -14,17 +14,22 @@ jest.mock("@faker-js/faker", () => {
 	};
 });
 
-import * as trips from "./trips";
+import * as trips from "../../src/trips";
 
 beforeEach(async () => {
-	//jest.resetModules();
+	jest.resetModules();
 });
 
 describe("getFavouriteTrips", () => {
 	it("should return an array of favourite trips", async () => {
-		expect(faker.string.uuid()).toBe(undefined);
-		trips.addFavouriteTrip("Trip1", "BRS", "CDG", ["2024-06-01"]);
-		trips.addFavouriteTrip("Trip2", "BRS", "JFK", ["2024-07-01"]);
+		trips.addFavouriteTrip("Trip1", "BRS", "CDG", {
+			from: "2024-06-01",
+			to: "2024-06-08",
+		});
+		trips.addFavouriteTrip("Trip2", "BRS", "JFK", {
+			from: "2024-07-01",
+			to: "2024-07-08",
+		});
 
 		const tripsArray = trips.getFavouriteTrips();
 		expect(tripsArray).toEqual([

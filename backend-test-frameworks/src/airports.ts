@@ -15,6 +15,6 @@ export const getLocalAirportDetails = async () => {
 	};
 };
 
-export const setLocalAirport = async (airport) => {
+export const setLocalAirport = async (airport: Record<"iataCode", string>) => {
 	localAirportCode = airport.iataCode;
 };

@@ -30,8 +30,8 @@ export const makeFetch = async (url: string, options: Options = {}) => {
 			throw new Error(`Response status: ${response.status}`);
 		}
 
-		const res = await response.json();
-		return { status: response.status, data: res };
+		const data = await response.json();
+		return { status: response.status, data };
 	} catch (error) {
 		const message = error instanceof Error ? error.message : String(error);
 		return { status: 500, data: message };

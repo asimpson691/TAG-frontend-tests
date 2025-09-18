@@ -1,4 +1,5 @@
-import { makeFetch } from "../src/common";
+import { beforeEach, describe, expect, test, vi } from "vitest";
+import { makeFetch } from "../../src/common";
 
 const baseURL = "http://localhost:3000";
 
@@ -11,7 +12,7 @@ beforeEach(() => {
 });
 
 describe("GET /airports/local", () => {
-	it("should return local airport details", async () => {
+	test("should return local airport details", async () => {
 		const res = await makeFetch(`${baseURL}/airports/local`);
 		expect(res.status).toBe(200);
 		expect(res.data).toEqual({
@@ -25,7 +26,7 @@ describe("GET /airports/local", () => {
 });
 
 describe("PUT /airports/local", () => {
-	it("should update what my local airport is", async () => {
+	test("should update what my local airport is", async () => {
 		const res = await makeFetch(`${baseURL}/airports/local`, {
 			method: "PUT",
 			body: { airport: { iataCode: "LGW" } },
