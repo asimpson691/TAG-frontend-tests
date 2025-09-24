@@ -1,0 +1,17 @@
+{
+  "name": "playwright-bdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+      "test": "npx bddgen && npx playwright test",
+      "ui": "npx bddgen && npx playwright test --ui"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+      "@playwright/test": "^1.55.0",
+      "@types/node": "^24.3.1",
+      "playwright-bdd": "^8.4.1"
+  }
+}
